@@ -49,11 +49,24 @@ class SpaceGameWorld extends World with HasGameRef<SpaceGame> {
     super.update(dt);
 
     children.whereType<Obstacle>().forEach((obstacle) {
-      obstacle.position.x -= (dt * 300);
+      obstacle.position.x -= (dt * 200);
 
       if (obstacle.position.x < -(gameRef.size.x)) {
-        obstacle.position.x = gameWidth;
+        obstacle.position.x = extendedWidth;
       }
     });
   }
+
+  // @override
+  // void update(double dt) {
+  //   super.update(dt);
+
+  //   children.whereType<Obstacle>().forEach((obstacle) {
+  //     obstacle.position.y -= (dt * 200);
+
+  //     if (obstacle.position.y < -(gameRef.size.y / 2)) {
+  //       obstacle.position.y = extendedheight;
+  //     }
+  //   });
+  // }
 }

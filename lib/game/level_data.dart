@@ -17,19 +17,16 @@ class ObstacleData {
   ObstacleData({required this.position, required this.type});
 }
 
-final random = Random();
-
 class LevelData {
-  final obstacleSpacing =
-      obstacleSize + (playerheight * 2); // Adjust for vertical spacing
-  final topSide = -(gameHeight / 2) + (obstacleSize / 2); // Adjust for top
-  final bottomSide = (gameHeight / 2) - (obstacleSize / 2); // Adjust for bottom
+  final random = Random();
+  final obstacleSpacing = obstacleSize + (playerheight * 3);
+  final topSide = -(gameHeight / 2) + (obstacleSize / 2);
+  final bottomSide = (gameHeight / 2) - (obstacleSize / 2);
 
   List<ObstacleData> level() {
     List<ObstacleData> level = [];
 
-    // Generating obstacles for each column
-    for (int column = 0; column <= 4; column++) {
+    for (int column = 0; column < 10; column++) {
       final generatedItems = randomColumnObstacles();
       level.addAll(obstacleColumn(
         column: column,
@@ -38,6 +35,7 @@ class LevelData {
         item3: generatedItems[2],
         item4: generatedItems[3],
         item5: generatedItems[4],
+        item6: generatedItems[5],
       ));
     }
 
@@ -49,11 +47,11 @@ class LevelData {
       ObstacleType.rock,
       ObstacleType.mountain,
       ObstacleType.stone,
-      null,
+      // null,
     ];
 
-    // Ensure some null values to create gaps
     List<ObstacleType?> result = [
+      null,
       null,
     ];
 
@@ -73,14 +71,14 @@ class LevelData {
     ObstacleType? item3,
     ObstacleType? item4,
     ObstacleType? item5,
+    ObstacleType? item6,
   }) {
     List<ObstacleData> content = [];
-    final xPosition =
-        obstacleSpacing * column; // X position stays the same for the column
+    final xPosition = obstacleSpacing * column;
 
-    if (column < 0 || column > 5) {
-      throw Exception("Column is out of range");
-    }
+    // if (column < 0 || column > 5) {
+    //   throw Exception("Column is out of range");
+    // }
 
     if (item1 != null) {
       content.add(
@@ -93,7 +91,7 @@ class LevelData {
     if (item2 != null) {
       content.add(
         ObstacleData(
-          position: Vector2(xPosition, topSide + (gameHeight / 5)),
+          position: Vector2(xPosition, topSide + (gameHeight / 6)),
           type: item2,
         ),
       );
@@ -101,15 +99,16 @@ class LevelData {
     if (item3 != null) {
       content.add(
         ObstacleData(
-          position: Vector2(xPosition, 0),
+          position: Vector2(xPosition, topSide + (gameHeight / 3) + 50),
           type: item3,
         ),
       );
     }
+
     if (item4 != null) {
       content.add(
         ObstacleData(
-          position: Vector2(xPosition, bottomSide - (gameHeight / 5)),
+          position: Vector2(xPosition, bottomSide - (gameHeight / 3) - 50),
           type: item4,
         ),
       );
@@ -117,8 +116,16 @@ class LevelData {
     if (item5 != null) {
       content.add(
         ObstacleData(
-          position: Vector2(xPosition, bottomSide),
+          position: Vector2(xPosition, bottomSide - (gameHeight / 6)),
           type: item5,
+        ),
+      );
+    }
+    if (item6 != null) {
+      content.add(
+        ObstacleData(
+          position: Vector2(xPosition, bottomSide),
+          type: item6,
         ),
       );
     }

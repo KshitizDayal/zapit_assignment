@@ -8,34 +8,119 @@ const double gameHeight = 1920.0;
 const double obstacleSizex = 180.0;
 const double obstacleSizey = 192.0;
 
-const double obstacleSize = 320.0;
+// const double obstacleSize = 320.0;
+const obstacleSize = 216.0; // if not work change to this
 
-const double extendedheight = gameHeight * 2;
-const double extendedWidth = gameWidth * 2;
+const double extendedheight = gameHeight * 4;
+const double extendedWidth = gameWidth * 5;
 
 const double playerheight = 150;
 
 
 
 
-// children.whereType<Obstacle>().forEach((obstacle) {
-//       obstacle.position.x -= (dt * 200);
+// class LevelData {
+//   final obstacleSpacing = obstacleSize + (playerheight * 2);
+//   final leftSide = -(gameWidth / 2) + (obstacleSize / 2);
+//   final rightSide = (gameWidth / 2) - (obstacleSize / 2);
+//   final random = Random();
 
-//       if (obstacle.position.x < -(gameRef.size.x / 2)) {
-//         // obstacle.position.y = -gameRef.size.y / 2;
+//   List<ObstacleData> level() {
+//     List<ObstacleData> level = [];
 
-//         print(true);
-//         obstacle.position.x = gameRef.size.x / 2;
-//       }
-//     });
+//     // randomly generate the rows
+//     for (int row = 0; row < 14; row++) {
+//       final generatedItems = randomRowObstacles();
+//       level.addAll(obstacleRow(
+//         row: row,
+//         item1: generatedItems[0],
+//         item2: generatedItems[1],
+//         item3: generatedItems[2],
+//         item4: generatedItems[3],
+//         item5: generatedItems[4],
+//       ));
+//     }
 
+//     return level;
+//   }
 
+//   List<ObstacleType?> randomRowObstacles() {
+//     final availableObjects = [
+//       ObstacleType.rock,
+//       ObstacleType.mountain,
+//       ObstacleType.stone,
+//       null,
+//     ];
 
-   // children.whereType<ObstacleRock>().forEach((obstacle) {
-    //   obstacle.position.x += (dt * 300);
+//     // ensure at least one item is null
+//     List<ObstacleType?> result = [null];
 
-    //   if (obstacle.position.x > (gameRef.size.x)) {
-    //     // obstacle.position.y = -gameRef.size.y / 2;
-    //     obstacle.position.x = -extendedWidth;
-    //   }
-    // });
+//     // fill list with 4 more random items
+//     for (int item = 0; item < 4; item++) {
+//       int randomIndex = random.nextInt(availableObjects.length);
+//       result.add(availableObjects[randomIndex]);
+//     }
+
+//     result.shuffle(random);
+//     return result;
+//   }
+
+//   List<ObstacleData> obstacleRow({
+//     required int row,
+//     ObstacleType? item1,
+//     ObstacleType? item2,
+//     ObstacleType? item3,
+//     ObstacleType? item4,
+//     ObstacleType? item5,
+//   }) {
+//     List<ObstacleData> content = [];
+//     final yPosition = obstacleSpacing * row;
+
+//     if (row < 0 || row > 14) {
+//       throw Exception("Row is out of range must be between 0..14");
+//     }
+
+//     if (item1 != null) {
+//       content.add(
+//         ObstacleData(
+//           position: Vector2(leftSide, yPosition),
+//           type: item1,
+//         ),
+//       );
+//     }
+//     if (item2 != null) {
+//       content.add(
+//         ObstacleData(
+//           position: Vector2(leftSide + (gameWidth / 5), yPosition),
+//           type: item2,
+//         ),
+//       );
+//     }
+//     if (item3 != null) {
+//       content.add(
+//         ObstacleData(
+//           position: Vector2(0, yPosition),
+//           type: item3,
+//         ),
+//       );
+//     }
+//     if (item4 != null) {
+//       content.add(
+//         ObstacleData(
+//           position: Vector2(rightSide - (gameWidth / 5), yPosition),
+//           type: item4,
+//         ),
+//       );
+//     }
+//     if (item5 != null) {
+//       content.add(
+//         ObstacleData(
+//           position: Vector2(rightSide, yPosition),
+//           type: item5,
+//         ),
+//       );
+//     }
+
+//     return content;
+//   }
+// }

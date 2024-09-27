@@ -22,7 +22,8 @@ class Obstacle extends SpriteComponent
   FutureOr<void> onLoad() async {
     super.onLoad();
     sprite = await Sprite.load(spritePath);
-    size = Vector2(currentSizex, currentSizey);
+    // size = Vector2(currentSizex, currentSizey);
+    size = Vector2.all(obstacleSize);
 
     anchor = Anchor.center;
     // add(CircleHitbox());
@@ -35,9 +36,11 @@ class ObstacleRock extends Obstacle {
           spritePath: 'rock.png',
           // currentSizex: obstacleSizex * 0.9,
           // currentSizey: obstacleSizey * 0.45,
+          currentSizex: obstacleSize,
+          currentSizey: obstacleSize,
 
-          currentSizex: obstacleSizex,
-          currentSizey: obstacleSizey,
+          // currentSizex: obstacleSizex,
+          // currentSizey: obstacleSizey,
         );
 }
 
@@ -47,8 +50,10 @@ class ObstacleMountain extends Obstacle {
           spritePath: 'mountain.png',
           // currentSizex: obstacleSizex * 1.6,
           // currentSizey: obstacleSizey,
-          currentSizex: obstacleSizex,
-          currentSizey: obstacleSizey,
+          currentSizex: obstacleSize,
+          currentSizey: obstacleSize,
+          // currentSizex: obstacleSizex,
+          // currentSizey: obstacleSizey,
         );
 }
 
@@ -58,7 +63,9 @@ class ObstacleStone extends Obstacle {
           spritePath: 'stone.png',
           // currentSizex: obstacleSizex * 0.4,
           // currentSizey: obstacleSizey * 0.4,
-          currentSizex: obstacleSizex,
-          currentSizey: obstacleSizey,
+          currentSizex: obstacleSize,
+          currentSizey: obstacleSize,
+          // currentSizex: obstacleSizex,
+          // currentSizey: obstacleSizey,
         );
 }
