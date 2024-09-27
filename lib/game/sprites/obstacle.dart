@@ -33,8 +33,11 @@ class ObstacleRock extends Obstacle {
   ObstacleRock()
       : super(
           spritePath: 'rock.png',
-          currentSizex: obstacleSizex * 0.9,
-          currentSizey: obstacleSizey * 0.45,
+          // currentSizex: obstacleSizex * 0.9,
+          // currentSizey: obstacleSizey * 0.45,
+
+          currentSizex: obstacleSizex,
+          currentSizey: obstacleSizey,
         );
 }
 
@@ -42,7 +45,9 @@ class ObstacleMountain extends Obstacle {
   ObstacleMountain()
       : super(
           spritePath: 'mountain.png',
-          currentSizex: obstacleSizex * 1.6,
+          // currentSizex: obstacleSizex * 1.6,
+          // currentSizey: obstacleSizey,
+          currentSizex: obstacleSizex,
           currentSizey: obstacleSizey,
         );
 }
@@ -51,7 +56,9 @@ class ObstacleStone extends Obstacle {
   ObstacleStone()
       : super(
           spritePath: 'stone.png',
-          currentSizex: obstacleSizex * 0.4,
-          currentSizey: obstacleSizey * 0.4,
+          // currentSizex: obstacleSizex * 0.4,
+          // currentSizey: obstacleSizey * 0.4,
+          currentSizex: obstacleSizex,
+          currentSizey: obstacleSizey,
         );
 }

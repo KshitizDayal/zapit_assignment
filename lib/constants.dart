@@ -8,10 +8,12 @@ const double gameHeight = 1920.0;
 const double obstacleSizex = 180.0;
 const double obstacleSizey = 192.0;
 
-const double obstacleSize = 192.0;
+const double obstacleSize = 320.0;
 
 const double extendedheight = gameHeight * 2;
 const double extendedWidth = gameWidth * 2;
+
+const double playerheight = 150;
 
 
 

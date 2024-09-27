@@ -12,10 +12,11 @@ class Player extends SpriteComponent
   FutureOr<void> onLoad() async {
     super.onLoad();
     sprite = await Sprite.load("spaceship.png");
-    size = Vector2.all(150);
+    size = Vector2.all(playerheight);
     position = Vector2(-(gameWidth / 4), 0);
     anchor = Anchor.center;
     add(RectangleHitbox());
+    angle = 1.5708;
   }
 
   void move(double delatY) {
