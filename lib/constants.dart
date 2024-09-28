@@ -8,13 +8,15 @@ const double gameHeight = 1920.0;
 const double obstacleSizex = 180.0;
 const double obstacleSizey = 192.0;
 
-// const double obstacleSize = 320.0;
-const obstacleSize = 216.0; // if not work change to this
+const obstacleSize = 216.0;
 
 const double extendedheight = gameHeight * 4;
 const double extendedWidth = gameWidth * 5;
+const double pipeInterval = 1.5;
 
 const double playerheight = 150;
+
+const gameSpeed = 200.0;
 
 
 
