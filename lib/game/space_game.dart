@@ -15,22 +15,42 @@ class SpaceGame extends FlameGame
     with VerticalDragDetector, KeyboardEvents, HasCollisionDetection {
   late Player player;
   Timer interval = Timer(Constants.columnInterval, repeat: true);
+  late TextComponent score;
+
   @override
   FutureOr<void> onLoad() {
     addAll([
       Background(),
       player = Player(),
       ObstacleColumn(),
+      score = builScore(),
     ]);
     interval.onTick = () => add(ObstacleColumn());
     return super.onLoad();
+  }
+
+  TextComponent builScore() {
+    return TextComponent(
+      text: "Score: 0",
+      position: Vector2(size.x / 2, size.y / 2 * 0.2),
+      anchor: Anchor.center,
+      textRenderer: TextPaint(
+        style: const TextStyle(
+          fontSize: 40,
+          fontWeight: FontWeight.bold,
+          fontFamily: "Game",
+        ),
+      ),
+    );
   }
 
   @override
   void update(double dt) {
     super.update(dt);
     interval.update(dt);
-    debugMode = true;
+    // debugMode = true;
+
+    score.text = "Score: ${player.score}";
   }
 
   @override

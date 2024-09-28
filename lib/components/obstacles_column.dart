@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:zapit_assignment/game/space_game.dart';
 
 import '../constants.dart';
@@ -25,7 +26,13 @@ class ObstacleColumn extends PositionComponent with HasGameRef<SpaceGame> {
 
     if (position.x < -430 - Constants.obstacleSize) {
       removeFromParent();
+      updateScore();
       // print("removed");
     }
+  }
+
+  void updateScore() {
+    gameRef.player.score += 1;
+    FlameAudio.play(Assets.pointAudio);
   }
 }

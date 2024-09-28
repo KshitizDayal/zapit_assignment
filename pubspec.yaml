@@ -35,4 +35,9 @@ flutter:
     - assets/images/
     - assets/audio/
 
+  fonts:
+    - family: Game     
+      fonts:
+        - asset: assets/fonts/Game.ttf
+
 

@@ -2,12 +2,15 @@ import 'dart:async';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:zapit_assignment/constants.dart';
 
 import '../game/space_game.dart';
 
 class Player extends SpriteComponent
     with HasGameRef<SpaceGame>, CollisionCallbacks {
+  int score = 0;
+
   @override
   FutureOr<void> onLoad() async {
     super.onLoad();
@@ -27,5 +30,23 @@ class Player extends SpriteComponent
     newY = newY.clamp(minY, maxY);
 
     position.y = newY;
+  }
+
+  @override
+  void onCollisionStart(
+      Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollisionStart(intersectionPoints, other);
+    gameOver();
+  }
+
+  void gameOver() {
+    gameRef.pauseEngine();
+    // game.isHit = true;
+    FlameAudio.play(Assets.collisionAudio);
+  }
+
+  void resetPosition() {
+    position = Vector2(50, gameRef.size.y / 2 - size.y / 2);
+    score = 0;
   }
 }

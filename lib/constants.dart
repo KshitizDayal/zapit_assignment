@@ -10,4 +10,6 @@ class Constants {
 
 class Assets {
   static const background = "background.png";
+  static const collisionAudio = "collision.wav";
+  static const pointAudio = "point.wav";
 }

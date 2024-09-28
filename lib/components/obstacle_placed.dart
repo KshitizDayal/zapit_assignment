@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
 import '../game/space_game.dart';
@@ -55,6 +56,6 @@ class ObstacleStone extends SpriteComponent with HasGameRef<SpaceGame> {
     super.onLoad();
 
     position = Vector2(gameRef.size.x, y);
-    // add(RectangleHitbox());
+    add(CircleHitbox());
   }
 }
