@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  final double pipeInterval = 1.5;
-  final double playerheight = 150;
-  final gameSpeed = 200.0;
-  final obstacleSize = 216.0;
-  final spaceColor = Color(0xFF210535);
+  static const double columnInterval = 2;
+  static const double playerheight = 60;
+  static const gameSpeed = 150.0;
+  static const obstacleSize = 100.0;
+  static const spaceColor = Color(0xFF210535);
+}
+
+class Assets {
+  static const background = "background.png";
 }
