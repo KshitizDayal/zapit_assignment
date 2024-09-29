@@ -6,6 +6,7 @@ class Constants {
   static const gameSpeed = 200.0;
   static const obstacleSize = 100.0;
   static const spaceColor = Color(0xFF210535);
+  static const topHeight = 120;
 }
 
 class Assets {

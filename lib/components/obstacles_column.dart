@@ -6,7 +6,7 @@ import 'package:flame_audio/flame_audio.dart';
 import 'package:zapit_assignment/game/space_game.dart';
 
 import '../constants.dart';
-import 'obstacle_placed.dart';
+import 'obstacles.dart';
 
 class ObstacleColumn extends PositionComponent
     with HasGameRef<SpaceGame>, CollisionCallbacks {
@@ -17,7 +17,7 @@ class ObstacleColumn extends PositionComponent
     position.x = gameRef.size.x;
 
     addAll([
-      ObstaclePlaced(),
+      Obstacles(),
     ]);
   }
 

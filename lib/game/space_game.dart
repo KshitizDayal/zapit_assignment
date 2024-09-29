@@ -54,7 +54,7 @@ class SpaceGame extends FlameGame
   void update(double dt) {
     super.update(dt);
     interval.update(dt);
-    debugMode = true;
+    // debugMode = true;
 
     score.text = "Score: ${player.score}";
   }
