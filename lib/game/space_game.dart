@@ -5,11 +5,11 @@ import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:zapit_assignment/components/obstacles_column.dart';
-import 'package:zapit_assignment/components/pause.dart';
-import 'package:zapit_assignment/components/player.dart';
 
 import '../components/background.dart';
+import '../components/obstacles_column.dart';
+import '../components/pause.dart';
+import '../components/player.dart';
 import '../constants.dart';
 
 class SpaceGame extends FlameGame

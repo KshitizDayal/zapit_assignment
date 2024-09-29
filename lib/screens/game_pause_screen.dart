@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zapit_assignment/game/space_game.dart';
+import 'package:zapit_assignment/game/game_highscore.dart';
 
 class GamePauseScreen extends StatelessWidget {
   final SpaceGame game;
@@ -67,13 +68,19 @@ class GamePauseScreen extends StatelessWidget {
     );
   }
 
-  void restartGame() {
+  void restartGame() async {
+    if (int.parse(SecureStorage.instance.highestScore) < game.player.score) {
+      SecureStorage.instance.storeHighScore(game.player.score.toString());
+    }
     game.player.resetPosition();
     game.overlays.remove('gamePause');
     game.resumeEngine();
   }
 
   void homeScreen() {
+    if (int.parse(SecureStorage.instance.highestScore) < game.player.score) {
+      SecureStorage.instance.storeHighScore(game.player.score.toString());
+    }
     game.overlays.remove('gamePause');
     game.player.resetPosition();
     game.overlays.add('gameStart');

@@ -1,15 +1,30 @@
 import 'package:flutter/material.dart';
 
 import '../game/space_game.dart';
+import '../game/game_highscore.dart';
 
-class GameStartScreen extends StatelessWidget {
+class GameStartScreen extends StatefulWidget {
   final SpaceGame game;
   static const String id = "gameStart";
   const GameStartScreen({super.key, required this.game});
 
   @override
+  State<GameStartScreen> createState() => _GameStartScreenState();
+}
+
+class _GameStartScreenState extends State<GameStartScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void checkHive() async {
+    await SecureStorage.instance.checkUserHighScore();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    game.pauseEngine();
+    widget.game.pauseEngine();
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -50,12 +65,13 @@ class GameStartScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 60),
-              const Text(
-                "Highest Score: 0",
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              Text(
+                "Highest Score: ${SecureStorage.instance.highestScore}",
+                style: const TextStyle(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
               ),
             ],
           ),
@@ -65,7 +81,7 @@ class GameStartScreen extends StatelessWidget {
   }
 
   void startGame() {
-    game.overlays.remove("gameStart");
-    game.resumeEngine();
+    widget.game.overlays.remove("gameStart");
+    widget.game.resumeEngine();
   }
 }

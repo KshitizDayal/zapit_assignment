@@ -14,5 +14,5 @@ class Assets {
   static const pause = "pause.png";
   static const spaceship = "spaceship.png";
   static const collisionAudio = "collision.wav";
-  static const pointAudio = "point.wav";
+  // static const pointAudio = "point.wav";
 }

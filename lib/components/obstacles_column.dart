@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame_audio/flame_audio.dart';
 import 'package:zapit_assignment/game/space_game.dart';
 
 import '../constants.dart';
@@ -45,6 +44,6 @@ class ObstacleColumn extends PositionComponent
     gameRef.isHit = true;
     gameRef.player.score += 1;
 
-    FlameAudio.play(Assets.pointAudio);
+    // FlameAudio.play(Assets.pointAudio);
   }
 }

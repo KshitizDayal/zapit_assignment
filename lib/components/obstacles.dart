@@ -8,19 +8,15 @@ import 'package:zapit_assignment/constants.dart';
 import '../game/space_game.dart';
 
 class Obstacles extends Component with HasGameRef<SpaceGame> {
-  final double stoneSize = 100.0; // Fixed size for each stone
-  final int totalStones = 5; // Number of stones in a column
-  final int emptySpots = 4; // Number of empty spots
+  final double stoneSize = 100.0;
+  final int totalStones = 5;
+  final int emptySpots = 4;
   final _random = Random();
 
   Obstacles();
 
   @override
   FutureOr<void> onLoad() {
-    // final heightMinusGround = gameRef.size.y;
-    // final spacing =
-    //     (heightMinusGround - (stoneSize * totalStones)) / (totalStones + 1);
-
     final heightMinusGround = gameRef.size.y -
         Constants.topHeight; // Subtract 100 from the total height
     final spacing =
@@ -60,7 +56,7 @@ class ObstacleStone extends SpriteComponent with HasGameRef<SpaceGame> {
 
   @override
   FutureOr<void> onLoad() async {
-    sprite = await Sprite.load('stone.png'); // Load the sprite here
+    sprite = await Sprite.load('stone.png');
     super.onLoad();
 
     position = Vector2(gameRef.size.x, y);
