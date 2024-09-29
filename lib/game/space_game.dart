@@ -16,6 +16,7 @@ class SpaceGame extends FlameGame
   late Player player;
   Timer interval = Timer(Constants.columnInterval, repeat: true);
   late TextComponent score;
+  bool isHit = false;
 
   @override
   FutureOr<void> onLoad() {

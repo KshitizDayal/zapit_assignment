@@ -29,6 +29,11 @@ class ObstacleColumn extends PositionComponent with HasGameRef<SpaceGame> {
       updateScore();
       // print("removed");
     }
+
+    if (gameRef.isHit) {
+      removeFromParent();
+      gameRef.isHit = false;
+    }
   }
 
   void updateScore() {

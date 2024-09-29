@@ -41,8 +41,9 @@ class Player extends SpriteComponent
 
   void gameOver() {
     gameRef.pauseEngine();
-    // game.isHit = true;
+    game.isHit = true;
     FlameAudio.play(Assets.collisionAudio);
+    gameRef.overlays.add('gameOver');
   }
 
   void resetPosition() {
