@@ -28,12 +28,16 @@ class ObstacleColumn extends PositionComponent
 
     if (gameRef.isHit == true) {
       removeFromParent();
-
       gameRef.isHit = false;
     }
 
     if (position.x < -550) {
       removeFromParent();
+    }
+
+    if (gameRef.resetObstacles) {
+      removeFromParent();
+      gameRef.resetObstacles = false;
     }
   }
 

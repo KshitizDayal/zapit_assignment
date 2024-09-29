@@ -14,7 +14,7 @@ class Player extends SpriteComponent
   @override
   FutureOr<void> onLoad() async {
     super.onLoad();
-    sprite = await Sprite.load("spaceship.png");
+    sprite = await Sprite.load(Assets.spaceship);
     size = Vector2.all(Constants.playerheight);
     position = Vector2(75, gameRef.size.y / 2 - size.y / 2);
     anchor = Anchor.center;
@@ -41,15 +41,16 @@ class Player extends SpriteComponent
     FlameAudio.play(Assets.collisionAudio);
   }
 
-  void gameOver() {
-    gameRef.pauseEngine();
-    game.isHit = true;
-    FlameAudio.play(Assets.collisionAudio);
-    gameRef.overlays.add('gameOver');
-  }
+  // void gameOver() {
+  //   gameRef.pauseEngine();
+  //   game.isHit = true;
+  //   FlameAudio.play(Assets.collisionAudio);
+  //   gameRef.overlays.add('gamePause');
+  // }
 
   void resetPosition() {
-    position = Vector2(50, gameRef.size.y / 2 - size.y / 2);
+    position = Vector2(75, gameRef.size.y / 2 - size.y / 2);
     score = 0;
+    gameRef.resetObstacles = true;
   }
 }

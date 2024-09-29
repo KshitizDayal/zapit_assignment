@@ -6,6 +6,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zapit_assignment/components/obstacles_column.dart';
+import 'package:zapit_assignment/components/pause.dart';
 import 'package:zapit_assignment/components/player.dart';
 
 import '../components/background.dart';
@@ -18,6 +19,8 @@ class SpaceGame extends FlameGame
   Timer interval = Timer(Constants.columnInterval, repeat: true);
   late TextComponent score;
   bool isHit = false;
+  bool resetObstacles = false;
+  late Pause pause;
 
   @override
   FutureOr<void> onLoad() {
@@ -26,6 +29,7 @@ class SpaceGame extends FlameGame
       player = Player(),
       obstacleColumn = ObstacleColumn(),
       score = builScore(),
+      pause = Pause(),
     ]);
     interval.onTick = () => add(ObstacleColumn());
     return super.onLoad();

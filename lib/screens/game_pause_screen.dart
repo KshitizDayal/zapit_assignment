@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:zapit_assignment/game/space_game.dart';
 
-class GameOverScreen extends StatelessWidget {
+class GamePauseScreen extends StatelessWidget {
   final SpaceGame game;
-  static const String id = "gameOver";
-  const GameOverScreen({super.key, required this.game});
+  static const String id = "gamePause";
+  const GamePauseScreen({super.key, required this.game});
 
   @override
   Widget build(BuildContext context) {
@@ -14,22 +14,32 @@ class GameOverScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const Text(
+              "Game Paused",
+              style: TextStyle(
+                  fontSize: 80,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Game",
+                  color: Color(0xFF97FEED)),
+            ),
+            const SizedBox(height: 20),
             Text(
-              "Score: ${game.player.score}",
+              "Current Score: ${game.player.score}",
               style: const TextStyle(
-                  fontSize: 60,
+                  fontSize: 40,
                   fontWeight: FontWeight.bold,
                   fontFamily: "Game",
                   color: Colors.white),
             ),
-            const SizedBox(height: 20),
-            const Text(
-              "Game Over",
-              style: TextStyle(
-                  fontSize: 100,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Game",
-                  color: Color(0xFF97FEED)),
+            const SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: resumeGame,
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Color(0xFFE7CCCC)),
+              child: const Text(
+                "Resume",
+                style: TextStyle(fontSize: 20, color: Color(0xFF433878)),
+              ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
@@ -38,7 +48,7 @@ class GameOverScreen extends StatelessWidget {
                   ElevatedButton.styleFrom(backgroundColor: Color(0xFFE4B1F0)),
               child: const Text(
                 "Restart",
-                style: TextStyle(fontSize: 20, color: Colors.white),
+                style: TextStyle(fontSize: 20, color: Color(0xFF433878)),
               ),
             ),
             const SizedBox(height: 20),
@@ -59,9 +69,14 @@ class GameOverScreen extends StatelessWidget {
 
   void restartGame() {
     game.player.resetPosition();
-    game.overlays.remove('gameOver');
+    game.overlays.remove('gamePause');
     game.resumeEngine();
   }
 
   void homeScreen() {}
+
+  void resumeGame() {
+    game.overlays.remove('gamePause');
+    game.resumeEngine();
+  }
 }

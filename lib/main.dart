@@ -2,7 +2,7 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:zapit_assignment/game/space_game.dart';
 
-import 'screens/game_over_screen.dart';
+import 'screens/game_pause_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,7 +11,7 @@ void main() {
     GameWidget(
       game: game,
       overlayBuilderMap: {
-        'gameOver': (context, _) => GameOverScreen(game: game),
+        'gamePause': (context, _) => GamePauseScreen(game: game),
       },
     ),
   );
