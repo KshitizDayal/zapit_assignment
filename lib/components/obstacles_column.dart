@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:zapit_assignment/game/space_game.dart';
@@ -7,7 +8,8 @@ import 'package:zapit_assignment/game/space_game.dart';
 import '../constants.dart';
 import 'obstacle_placed.dart';
 
-class ObstacleColumn extends PositionComponent with HasGameRef<SpaceGame> {
+class ObstacleColumn extends PositionComponent
+    with HasGameRef<SpaceGame>, CollisionCallbacks {
   ObstacleColumn();
 
   @override
@@ -24,20 +26,21 @@ class ObstacleColumn extends PositionComponent with HasGameRef<SpaceGame> {
     super.update(dt);
     position.x -= Constants.gameSpeed * dt;
 
-    if (position.x < -430 - Constants.obstacleSize) {
+    if (gameRef.isHit == true) {
       removeFromParent();
-      updateScore();
-      // print("removed");
+
+      gameRef.isHit = false;
     }
 
-    if (gameRef.isHit) {
+    if (position.x < -550) {
       removeFromParent();
-      gameRef.isHit = false;
     }
   }
 
   void updateScore() {
+    gameRef.isHit = true;
     gameRef.player.score += 1;
+
     FlameAudio.play(Assets.pointAudio);
   }
 }

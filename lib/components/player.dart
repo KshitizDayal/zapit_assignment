@@ -36,7 +36,9 @@ class Player extends SpriteComponent
   void onCollisionStart(
       Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
-    gameOver();
+    // gameOver();
+    gameRef.obstacleColumn.updateScore();
+    FlameAudio.play(Assets.collisionAudio);
   }
 
   void gameOver() {

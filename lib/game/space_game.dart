@@ -14,6 +14,7 @@ import '../constants.dart';
 class SpaceGame extends FlameGame
     with VerticalDragDetector, KeyboardEvents, HasCollisionDetection {
   late Player player;
+  late ObstacleColumn obstacleColumn;
   Timer interval = Timer(Constants.columnInterval, repeat: true);
   late TextComponent score;
   bool isHit = false;
@@ -23,7 +24,7 @@ class SpaceGame extends FlameGame
     addAll([
       Background(),
       player = Player(),
-      ObstacleColumn(),
+      obstacleColumn = ObstacleColumn(),
       score = builScore(),
     ]);
     interval.onTick = () => add(ObstacleColumn());
@@ -49,7 +50,7 @@ class SpaceGame extends FlameGame
   void update(double dt) {
     super.update(dt);
     interval.update(dt);
-    // debugMode = true;
+    debugMode = true;
 
     score.text = "Score: ${player.score}";
   }

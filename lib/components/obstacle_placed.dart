@@ -9,7 +9,7 @@ import '../game/space_game.dart';
 class ObstaclePlaced extends Component with HasGameRef<SpaceGame> {
   final double stoneSize = 100.0; // Fixed size for each stone
   final int totalStones = 6; // Number of stones in a column
-  final int emptySpots = 2; // Number of empty spots
+  final int emptySpots = 5; // Number of empty spots
   final _random = Random();
 
   ObstaclePlaced();
@@ -39,6 +39,7 @@ class ObstaclePlaced extends Component with HasGameRef<SpaceGame> {
         add(obstacleStone);
       }
     }
+
     return super.onLoad();
   }
 }
