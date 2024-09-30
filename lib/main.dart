@@ -1,4 +1,5 @@
 import 'package:flame/game.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:zapit_assignment/game/space_game.dart';
 
@@ -10,6 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final game = SpaceGame();
   await SecureStorage.instance.checkUserHighScore();
+
   runApp(
     GameWidget(
       game: game,

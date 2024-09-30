@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -24,12 +25,25 @@ class SpaceGame extends FlameGame
 
   @override
   FutureOr<void> onLoad() {
+    FlameAudio.bgm.initialize();
+    FlameAudio.bgm.play("background_music.mp3");
     addAll([
       Background(),
       player = Player(),
       obstacleColumn = ObstacleColumn(),
       score = builScore(),
       pause = Pause(),
+      FpsTextComponent(
+        position: Vector2(size.x / 2 * 0.2, size.y / 2 * 0.17),
+        textRenderer: TextPaint(
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.normal,
+            fontFamily: "Game",
+            color: Color(0xFFE7CCCC),
+          ),
+        ),
+      ),
     ]);
     interval.onTick = () => add(ObstacleColumn());
     return super.onLoad();
