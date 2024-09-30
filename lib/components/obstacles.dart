@@ -48,6 +48,7 @@ class Obstacles extends Component with HasGameRef<SpaceGame> {
 }
 
 class ObstacleStone extends SpriteComponent with HasGameRef<SpaceGame> {
+  @override
   final double y;
   final double stoneSize;
 
