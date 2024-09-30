@@ -30,7 +30,7 @@ class ObstacleColumn extends PositionComponent
       gameRef.isHit = false;
     }
 
-    if (position.x < -550) {
+    if (position.x < -gameRef.size.x - Constants.obstacleSize) {
       removeFromParent();
     }
 
