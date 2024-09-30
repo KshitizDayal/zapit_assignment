@@ -15,14 +15,16 @@ class SecureStorage {
   }
 
   Future<String> readFromStorage() async {
-    String authorizationToken = await _storage.read(key: highestScoreKey) ?? "";
+    String authorizationToken =
+        await _storage.read(key: highestScoreKey) ?? "0";
     return authorizationToken;
   }
 
   Future<String> checkUserHighScore() async {
     String tempAuthToken = await readFromStorage();
     highestScore = tempAuthToken;
-    return tempAuthToken != "" ? highestScore : "0";
+
+    return highestScore;
   }
 
   Future deleteStorage() async {

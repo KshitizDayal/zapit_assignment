@@ -78,6 +78,7 @@ class GamePauseScreen extends StatelessWidget {
   }
 
   void homeScreen() {
+    print(SecureStorage.instance.highestScore);
     if (int.parse(SecureStorage.instance.highestScore) < game.player.score) {
       SecureStorage.instance.storeHighScore(game.player.score.toString());
     }

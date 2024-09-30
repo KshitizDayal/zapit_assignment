@@ -2,12 +2,14 @@ import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:zapit_assignment/game/space_game.dart';
 
+import 'game/game_highscore.dart';
 import 'screens/game_pause_screen.dart';
 import 'screens/game_start_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final game = SpaceGame();
+  await SecureStorage.instance.checkUserHighScore();
   runApp(
     GameWidget(
       game: game,

@@ -3,28 +3,15 @@ import 'package:flutter/material.dart';
 import '../game/space_game.dart';
 import '../game/game_highscore.dart';
 
-class GameStartScreen extends StatefulWidget {
+class GameStartScreen extends StatelessWidget {
   final SpaceGame game;
   static const String id = "gameStart";
+
   const GameStartScreen({super.key, required this.game});
 
   @override
-  State<GameStartScreen> createState() => _GameStartScreenState();
-}
-
-class _GameStartScreenState extends State<GameStartScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  void checkHive() async {
-    await SecureStorage.instance.checkUserHighScore();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    widget.game.pauseEngine();
+    game.pauseEngine();
     return Scaffold(
       body: Container(
         width: double.infinity,
@@ -81,7 +68,7 @@ class _GameStartScreenState extends State<GameStartScreen> {
   }
 
   void startGame() {
-    widget.game.overlays.remove("gameStart");
-    widget.game.resumeEngine();
+    game.overlays.remove("gameStart");
+    game.resumeEngine();
   }
 }
