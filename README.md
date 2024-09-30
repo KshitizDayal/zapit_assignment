@@ -1,16 +1,5 @@
 # zapit_assignment
 
-A new Flutter project.
+A 2D game where spaceship as to attack obstacles for scoring points.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## All the apk and videos can be found at the <a href="https://drive.google.com/drive/folders/1YNP96U8G2PnuQM8aXLBFdrLwqL9SKSgg?usp=sharing">Google Drive</a>. Have a look and enjoy playing.
